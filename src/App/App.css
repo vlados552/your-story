@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'geosteamregular';
+	src: local('geosteamregular'),
+		url('../fonts/geosteam-ejap-webfont.woff2') format('woff2'),
+		url('../fonts/geosteam-ejap-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: black;
+	font-family: 'geosteamregular', Helvetica, sans-serif;
+	color: white;
+	height: 100vh;
+}
