@@ -9,7 +9,12 @@
 
 body {
 	background-color: black;
-	font-family: 'geosteamregular', Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 	height: 100vh;
+}
+
+h1{
+	font-family: 'geosteamregular', Helvetica, sans-serif;
+	color: white;	
 }
