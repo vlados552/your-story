@@ -14,7 +14,19 @@ body {
 	height: 100vh;
 }
 
-h1{
+h1 {
 	font-family: 'geosteamregular', Helvetica, sans-serif;
-	color: white;	
+	color: white;
+}
+
+.arrow {
+	width: 30px;
+	cursor: pointer;
+}
+.character-img {
+	width: 300px;
+	height: 300px;
+}
+.stats {
+	list-style-type: none;
 }
