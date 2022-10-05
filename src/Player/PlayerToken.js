@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../Hooks/dataContext';
-import './PlayerToken.css'
+import './PlayerToken.css';
 
-function PlayerToken(props) {
-    const { data, setData } = useContext(DataContext);
+function PlayerToken({ displayToken }) {
+	const { data } = useContext(DataContext);
 
-    return (
-        <div className='player-token'>
-            <img src={data.imgUrl} alt="" />
-        </div>
-    );
+	return (
+		<div className={`player-token mc ${displayToken ? 'display' : ''}`}>
+			<img src={data.imgUrl} alt='' />
+		</div>
+	);
 }
 
 export default PlayerToken;

@@ -1,7 +1,7 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Start(props) {
+function Start() {
 	const navigate = useNavigate();
 
 	function handleClick() {

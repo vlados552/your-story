@@ -13,7 +13,7 @@ function App() {
 	const [data, setData] = useState({});
 
 	return (
-		<div>
+		<div className=''>
 			<header>
 				<Routes>
 					-

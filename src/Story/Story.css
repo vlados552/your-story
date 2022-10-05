@@ -1,8 +1,39 @@
-.story{
- height: 100vh;
+.story {
+	height: 80vh;
 }
 
-.grid-story{
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+.grid-story {
+	grid-template-areas:
+		'tl tc tr'
+		'ml mc mr'
+		'bl bc br';
+	width: 100%;
+	height: 100%;
+}
+.tl {
+	grid-area: tl;
+}
+.tc {
+	grid-area: tc;
+}
+.tr {
+	grid-area: tr;
+}
+.ml {
+	grid-area: ml;
+}
+.mc {
+	grid-area: mc;
+}
+.mr {
+	grid-area: mr;
+}
+.bl {
+	grid-area: bl;
+}
+.bc {
+	grid-area: bc;
+}
+.br {
+	grid-area: br;
 }

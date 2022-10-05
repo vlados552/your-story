@@ -1,24 +1,48 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../Hooks/dataContext';
 import ArrowLeft from '../Icons/ArrowLeft';
 import ArrowRight from '../Icons/ArrowRight';
 import { Images } from '../Images/Images';
 import { Roll } from '../Actions/Roll';
+import Tooltip from '../Tooltip/Tooltip';
+import { getDescriptions } from './getDescriptions';
 
-function Character(props) {
+function Character() {
 	const { data, setData } = useContext(DataContext);
 	const navigate = useNavigate();
 	const initialState = {
 		imgUrl: !data.characterImg ? Images[0] : data.characterImg,
 		imgIndex: getImgIndex(data.characterImg, Images),
 		name: '',
-		stats: { str: 0, dex: 0, con: 0 },
+		stats: {
+			str: 0,
+			dex: 0,
+			con: 0,
+			strDescription: '',
+			dexDescription: '',
+			conDescription: '',
+		},
 		hp: 0,
 		energy: 0,
 	};
 	const [character, setCharacter] = useState(initialState);
 	const difficult = 3;
+
+	useEffect(() => {
+		getDescriptions().then((descriptions) => {
+			setCharacter({
+				...character,
+				stats: {
+					...character.stats,
+					strDescription: descriptions.strDescription,
+					dexDescription: descriptions.dexDescription,
+					conDescription: descriptions.conDescription,
+				},
+			});
+		});
+		// eslint-disable-next-line
+	}, []);
 
 	function handleChange(e) {
 		setCharacter({ ...character, name: e.target.value });
@@ -102,9 +126,11 @@ function Character(props) {
 			case 'arrowLeft':
 				currIndex -= 1;
 				currIndex = currIndex < 0 ? Images.length - 1 : currIndex;
+			// eslint-disable-next-line
 			case 'arrowRight':
 				currIndex += 1;
 				currIndex = currIndex >= Images.length ? 0 : currIndex;
+			// eslint-disable-next-line
 			default:
 				setCharacter({
 					...character,
@@ -142,6 +168,7 @@ function Character(props) {
 					placeholder='Enter your name'
 					onChange={handleChange}
 					value={character.name}
+					required
 				/>
 				<div>
 					<h4>How you look?</h4>
@@ -157,7 +184,10 @@ function Character(props) {
 					<h4>Wow, it is your stats:</h4>
 					<ul className='Stats'>
 						<li>
-							STR:{' '}
+							<Tooltip
+								stat={'STR: '}
+								description={character.stats.strDescription}
+							/>
 							<span
 								id='stats-str'
 								onClick={character.stats.str === 0 ? handleClickStats : null}>
@@ -165,7 +195,10 @@ function Character(props) {
 							</span>
 						</li>
 						<li>
-							DEX:{' '}
+							<Tooltip
+								stat={'DEX: '}
+								description={character.stats.dexDescription}
+							/>
 							<span
 								id='stats-dex'
 								onClick={character.stats.dex === 0 ? handleClickStats : null}>
@@ -173,7 +206,10 @@ function Character(props) {
 							</span>
 						</li>
 						<li>
-							CON:{' '}
+							<Tooltip
+								stat={'CON: '}
+								description={character.stats.conDescription}
+							/>
 							<span
 								id='stats-con'
 								onClick={character.stats.con === 0 ? handleClickStats : null}>

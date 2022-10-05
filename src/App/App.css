@@ -30,6 +30,31 @@ h1 {
 .stats {
 	list-style-type: none;
 }
-.grid{
+.grid {
 	display: grid;
+}
+
+header {
+	grid-area: header;
+}
+main {
+	grid-area: main;
+}
+footer {
+	grid-area: footer;
+}
+
+.wrapper {
+	height: 100%;
+}
+
+@media only screen and (min-width: 500px) {
+	.wrapper {
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.wrapper {
+		max-width: 600px;
+	}
 }
