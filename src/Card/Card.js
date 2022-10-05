@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
+import "./Card.css";
 
-function Card(props) {
-	return <div></div>;
+function Card({ state, data }) {
+  return <div className={`grid grid-card ${state ? 'card-front': 'card-back'}`}></div>;
 }
 
 export default Card;

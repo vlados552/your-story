@@ -1,0 +1,11 @@
+.grid-card{
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    height: 300px;
+}
+.card-front{
+    background: no-repeat url('./card-front.png');
+}
+.card-back{
+    background: no-repeat url('./card-back.png');
+}

@@ -1,0 +1,9 @@
+.player-token{
+    width: 30px;
+    height: 30px;
+}
+.player-token > img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
