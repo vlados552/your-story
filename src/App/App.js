@@ -4,8 +4,8 @@ import { DataContext } from '../Hooks/dataContext';
 import Header from './Header';
 import Footer from './Footer';
 import Start from './Start';
-import Character from '../Character/Character'
-import Story from '../Story/Story'
+import Character from '../Character/Character';
+import Story from '../Story/Story';
 import './reset.css';
 import './App.css';
 
@@ -15,7 +15,8 @@ function App() {
 	return (
 		<div>
 			<header>
-				<Routes>-
+				<Routes>
+					-
 					<Route path='/' element={null} />
 					<Route path='/*' element={<Header />} />
 				</Routes>
@@ -23,9 +24,22 @@ function App() {
 			<main>
 				<Routes>
 					<Route path='/' element={<Start />} />
-					<Route path='/character' 
-					element ={<DataContext.Provider value={{data, setData}}><Character /></DataContext.Provider>} />
-					<Route path='/my-story/:id' element = {<Story />} />
+					<Route
+						path='/character'
+						element={
+							<DataContext.Provider value={{ data, setData }}>
+								<Character />
+							</DataContext.Provider>
+						}
+					/>
+					<Route
+						path='/my-story/:id'
+						element={
+							<DataContext.Provider value={{ data, setData }}>
+								<Story />
+							</DataContext.Provider>
+						}
+					/>
 				</Routes>
 			</main>
 			<footer>

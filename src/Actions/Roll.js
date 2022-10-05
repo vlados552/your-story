@@ -1,13 +1,12 @@
-export const Roll = (amount) => {
+export const Roll = async (amount) => {
 	const url = `https://rolz.org/api/?${amount}d6.json`;
 	const result = { result: 0, dice: [] };
-	fetch(url)
+	await fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
 			result.result = data.result;
 			result.dice = [...parseRoll(data.details)];
 		});
-	console.log(result);
 	return result;
 };
 
